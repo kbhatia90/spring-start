@@ -11,7 +11,7 @@
 		</property>
 	</bean>
 
-	<bean id="triangle1" class="com.basics.spring.Triangle" parent="parenttriangle">
+	<bean id="triangle1" class="com.basics.spring.Triangle" parent="parenttriangle" init-method="initMethod" destroy-method="cleanup">
 		<property name="points">
 			<list merge="true">
 				<ref bean="pointB"></ref>

@@ -53,5 +53,15 @@ public class Triangle implements ApplicationContextAware, BeanNameAware, Initial
 		System.out.println("bean init");
 		
 	}
+	
+	public void initMethod()
+	{
+		System.out.println("this is init method for triangle1 by using xml");
+	}
+	
+	public void cleanup()
+	{
+		System.out.println("this is cleanup method for triangle1 bean by using xml");
+	}
 
 }
