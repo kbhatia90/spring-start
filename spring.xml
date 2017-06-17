@@ -3,7 +3,29 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<bean id="triangle" class="com.basics.spring.Triangle" autowire="byName">
+	<bean id="parenttriangle" class="com.basics.spring.Triangle" abstract="true">
+		<property name="points">
+			<list>
+				<ref bean="pointA"></ref>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="triangle1" class="com.basics.spring.Triangle" parent="parenttriangle">
+		<property name="points">
+			<list merge="true">
+				<ref bean="pointB"></ref>
+				<ref bean="pointC"></ref>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="triangle2" class="com.basics.spring.Triangle" parent="parenttriangle">
+		<property name="points">
+			<list>
+				<ref bean="pointB"></ref>
+			</list>
+		</property>
 	</bean>
 
 	<bean id="pointC" class="com.basics.spring.Point">

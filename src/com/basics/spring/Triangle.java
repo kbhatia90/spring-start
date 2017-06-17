@@ -9,47 +9,27 @@ import org.springframework.context.ApplicationContextAware;
 
 public class Triangle implements ApplicationContextAware, BeanNameAware{
 
-	private Point pointA;
-	private Point pointB;
-	private Point pointC;
+	private List<Point> points;
 	private ApplicationContext context = null;
 
-	public Point getPointA() {
-		return pointA;
+	public List<Point> getPoints() {
+		return points;
 	}
 
-	public void setPointA(Point pointA) {
-		this.pointA = pointA;
+	public void setPoints(List<Point> points) {
+		this.points = points;
 	}
-
-	public Point getPointB() {
-		return pointB;
-	}
-
-	public void setPointB(Point pointB) {
-		this.pointB = pointB;
-	}
-
-	public Point getPointC() {
-		return pointC;
-	}
-
-	public void setPointC(Point pointC) {
-		this.pointC = pointC;
-	}
-
 
 	public void draw()
 	{
-
-		System.out.println(pointA.getX()+" "+pointA.getY());
-		System.out.println(pointB.getX()+" "+pointB.getY());
-		System.out.println(pointC.getX()+" "+pointC.getY());
+		
+		for (Point point : points)
+				System.out.println(point.getX()+" "+point.getY());
 	
 	}
 
 	@Override
-	public void setApplicationContext(ApplicationContext arg0) throws BeansException {
+	public void setApplicationContext(ApplicationContext context) throws BeansException {
 		this.context=context;
 		
 	}
