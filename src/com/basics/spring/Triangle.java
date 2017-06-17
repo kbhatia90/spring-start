@@ -4,10 +4,12 @@ import java.util.List;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
-public class Triangle implements ApplicationContextAware, BeanNameAware{
+public class Triangle implements ApplicationContextAware, BeanNameAware, InitializingBean, DisposableBean{
 
 	private List<Point> points;
 	private ApplicationContext context = null;
@@ -37,6 +39,18 @@ public class Triangle implements ApplicationContextAware, BeanNameAware{
 	@Override
 	public void setBeanName(String beanName) {
 		System.out.println(beanName);
+		
+	}
+
+	@Override
+	public void destroy() throws Exception {
+		System.out.println("bean destruction");
+		
+	}
+
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		System.out.println("bean init");
 		
 	}
 
