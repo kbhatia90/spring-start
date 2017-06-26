@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
+<beans default-init-method="initMethod" default-destroy-method="cleanup" xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
@@ -11,7 +11,7 @@
 		</property>
 	</bean>
 
-	<bean id="triangle1" class="com.basics.spring.Triangle" parent="parenttriangle" init-method="initMethod" destroy-method="cleanup">
+	<bean id="triangle1" class="com.basics.spring.Triangle" parent="parenttriangle">
 		<property name="points">
 			<list merge="true">
 				<ref bean="pointB"></ref>
