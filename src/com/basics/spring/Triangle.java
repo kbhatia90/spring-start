@@ -1,7 +1,5 @@
 package com.basics.spring;
 
-import java.util.List;
-
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.context.ApplicationContext;
@@ -49,7 +47,7 @@ public class Triangle implements ApplicationContextAware, BeanNameAware{
 	}
 
 	@Override
-	public void setApplicationContext(ApplicationContext arg0) throws BeansException {
+	public void setApplicationContext(ApplicationContext context) throws BeansException {
 		this.context=context;
 		
 	}
