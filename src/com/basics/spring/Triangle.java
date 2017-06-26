@@ -44,24 +44,24 @@ public class Triangle implements ApplicationContextAware, BeanNameAware, Initial
 
 	@Override
 	public void destroy() throws Exception {
-		System.out.println("bean destruction");
+		System.out.println("bean destruction by spring using DisposableBean interface");
 		
 	}
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
-		System.out.println("bean init");
+		System.out.println("bean init by spring using InitializeBean interface ");
 		
 	}
 	
 	public void initMethod()
 	{
-		System.out.println("this is init method for triangle1 by using xml");
+		System.out.println("this is init method for triangle1 by using spring xml");
 	}
 	
 	public void cleanup()
 	{
-		System.out.println("this is cleanup method for triangle1 bean by using xml");
+		System.out.println("this is cleanup method for triangle1 bean by using spring xml");
 	}
 
 }
