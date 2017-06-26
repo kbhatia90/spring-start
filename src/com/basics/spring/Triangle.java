@@ -13,7 +13,8 @@ public class Triangle implements ApplicationContextAware, BeanNameAware, Initial
 
 	private List<Point> points;
 	private ApplicationContext context = null;
-
+	private String beanName;
+	
 	public List<Point> getPoints() {
 		return points;
 	}
@@ -38,7 +39,8 @@ public class Triangle implements ApplicationContextAware, BeanNameAware, Initial
 
 	@Override
 	public void setBeanName(String beanName) {
-		System.out.println(beanName);
+		this.beanName = beanName;
+		System.out.println("interface BeanNameAware " + beanName);
 		
 	}
 
@@ -56,12 +58,12 @@ public class Triangle implements ApplicationContextAware, BeanNameAware, Initial
 	
 	public void initMethod()
 	{
-		System.out.println("this is init method for triangle1 by using spring xml");
+		System.out.println("this is default global init method using spring xml " + beanName);
 	}
 	
 	public void cleanup()
 	{
-		System.out.println("this is cleanup method for triangle1 bean by using spring xml");
+		System.out.println("this is default global cleanup method for bean by using spring xml");
 	}
 
 }
