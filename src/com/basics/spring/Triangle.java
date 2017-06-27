@@ -9,7 +9,7 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
-public class Triangle implements ApplicationContextAware, BeanNameAware, InitializingBean, DisposableBean{
+public class Triangle implements Shape, ApplicationContextAware, BeanNameAware, InitializingBean, DisposableBean{
 
 	private List<Point> points;
 	private ApplicationContext context = null;
@@ -46,13 +46,13 @@ public class Triangle implements ApplicationContextAware, BeanNameAware, Initial
 
 	@Override
 	public void destroy() throws Exception {
-		System.out.println("bean destruction by spring using DisposableBean interface");
+		System.out.println("bean destruction by spring using DisposableBean interface" + beanName);
 		
 	}
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
-		System.out.println("bean init by spring using InitializeBean interface ");
+		System.out.println("bean init by spring using InitializeBean interface " + beanName);
 		
 	}
 	
@@ -63,7 +63,7 @@ public class Triangle implements ApplicationContextAware, BeanNameAware, Initial
 	
 	public void cleanup()
 	{
-		System.out.println("this is default global cleanup method for bean by using spring xml");
+		System.out.println("this is default global cleanup method for bean by using spring xml" + beanName);
 	}
 
 }
