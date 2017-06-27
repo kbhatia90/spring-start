@@ -13,9 +13,9 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 public class DisplayNameBeanPostProcessor implements BeanPostProcessor {
 
 	@Override
-	public Object postProcessAfterInitialization(Object obj, String arg1) throws BeansException {
-		System.out.println("BeanPostProcessing after init " + arg1);
-		return obj;
+	public Object postProcessAfterInitialization(Object kashish, String arg1) throws BeansException {
+		System.out.println("BeanPostProcessing after init " + arg1 + kashish.getClass().getName());
+		return kashish;
 	}
 
 	@Override

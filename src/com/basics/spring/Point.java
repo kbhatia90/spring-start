@@ -4,6 +4,10 @@ import org.springframework.beans.factory.BeanNameAware;
 
 public class Point implements BeanNameAware{
 	
+	public Point() {
+		super();
+		System.out.println("in the constructor of Point >>>>>>>>>>");
+	}
 	private int x;
 	private int y;
 	private String beanName;
